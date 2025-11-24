@@ -2,6 +2,8 @@ module github.com/ollama/ollama
 
 go 1.24.1
 
+toolchain go1.24.10
+
 require (
 	github.com/TheTitanrain/w32 v0.0.0-20180517000239-4f5cfb03fabf
 	github.com/containerd/console v1.0.3
@@ -15,8 +17,8 @@ require (
 	github.com/spf13/cobra v1.7.0
 	github.com/stretchr/testify v1.9.0
 	github.com/x448/float16 v0.8.4
-	golang.org/x/sync v0.12.0
-	golang.org/x/sys v0.36.0
+	golang.org/x/sync v0.7.0
+	golang.org/x/sys v0.30.0
 )
 
 require (
@@ -28,8 +30,8 @@ require (
 	github.com/nlpodyssey/gopickle v0.3.0
 	github.com/pdevine/tensor v0.0.0-20240510204454-f88f4562727c
 	github.com/tkrajina/typescriptify-golang-structs v0.2.0
-	golang.org/x/image v0.22.0
-	golang.org/x/tools v0.30.0
+	golang.org/x/image v0.15.0
+	golang.org/x/tools v0.23.0
 	gonum.org/v1/gonum v0.15.0
 )
 
@@ -58,7 +60,7 @@ require (
 require (
 	github.com/bytedance/sonic v1.11.6 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.3 // indirect
-	github.com/gin-contrib/cors v1.7.2
+	github.com/gin-contrib/cors v1.7.1
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-playground/locales v0.14.1 // indirect
 	github.com/go-playground/universal-translator v0.18.1 // indirect
@@ -76,11 +78,11 @@ require (
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
 	github.com/ugorji/go/codec v1.2.12 // indirect
 	golang.org/x/arch v0.8.0 // indirect
-	golang.org/x/crypto v0.36.0
-	golang.org/x/exp v0.0.0-20250218142911-aa4b98e5adaa // indirect
-	golang.org/x/net v0.38.0 // indirect
-	golang.org/x/term v0.30.0
-	golang.org/x/text v0.23.0
+	golang.org/x/crypto v0.25.0
+	golang.org/x/exp v0.0.0-20231110203233-9a3e6036ecaa // indirect
+	golang.org/x/net v0.27.0 // indirect
+	golang.org/x/term v0.29.0
+	golang.org/x/text v0.16.0
 	google.golang.org/protobuf v1.34.1
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

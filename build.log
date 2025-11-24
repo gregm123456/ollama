@@ -1,0 +1,2 @@
+# github.com/ollama/ollama/llm
+llm/llm_ax650.go:243:4: unknown field Vendor in struct literal of type ml.DeviceInfo

@@ -89,7 +89,7 @@ func (s *ax650Server) Load(ctx context.Context, systemInfo ml.SystemInfo, gpus [
 	slog.Info("Model loaded on AX650", "result", result)
 
 	// Return a dummy device ID (AX650 NPU)
-	return []ml.DeviceID{{Type: "npu", Index: 0}}, nil
+	return []ml.DeviceID{{ID: "0", Library: "npu"}}, nil
 }
 
 // Ping checks if the AX650 backend is responsive
@@ -238,9 +238,9 @@ func (s *ax650Server) GetPort() int {
 func (s *ax650Server) GetDeviceInfos(ctx context.Context) []ml.DeviceInfo {
 	return []ml.DeviceInfo{
 		{
-			ID:     ml.DeviceID{Type: "npu", Index: 0},
-			Name:   "AX650/LLM8850 NPU",
-			Vendor: "AXERA",
+			DeviceID:    ml.DeviceID{ID: "0", Library: "npu"},
+			Name:        "AX650/LLM8850 NPU",
+			Description: "AXERA AX650/LLM8850 NPU",
 		},
 	}
 }

@@ -1,0 +1,1 @@
+FROM /home/robot/ollama_ax650_pi/ax650_raspberry_pi_services/reference_projects_and_documentation/Qwen3-4B/qwen3-4b-ax650/qwen3_post.axmodel
