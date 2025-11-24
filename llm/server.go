@@ -36,6 +36,32 @@ import (
 	"github.com/ollama/ollama/model"
 )
 
+// isAX650Model checks if the model path indicates an AX650 model
+func isAX650Model(modelPath string) bool {
+	// Check environment variable override
+	if os.Getenv("OLLAMA_USE_AX650") == "1" {
+		return true
+	}
+
+	// Check if model path contains .axmodel extension or axmodel directory
+	if strings.Contains(modelPath, ".axmodel") {
+		return true
+	}
+
+	// Check if the directory contains .axmodel files
+	dir := filepath.Dir(modelPath)
+	entries, err := os.ReadDir(dir)
+	if err == nil {
+		for _, entry := range entries {
+			if strings.HasSuffix(entry.Name(), ".axmodel") {
+				return true
+			}
+		}
+	}
+
+	return false
+}
+
 type filteredEnv []string
 
 func (e filteredEnv) LogValue() slog.Value {
@@ -140,6 +166,12 @@ func LoadModel(model string, maxArraySize int) (*ggml.GGML, error) {
 
 // NewLlamaServer will run a server for the given GPUs
 func NewLlamaServer(systemInfo ml.SystemInfo, gpus []ml.DeviceInfo, modelPath string, f *ggml.GGML, adapters, projectors []string, opts api.Options, numParallel int) (LlamaServer, error) {
+	// Check if this is an AX650 model
+	if isAX650Model(modelPath) {
+		slog.Info("Detected AX650 model, using AX650 backend", "model", modelPath)
+		return NewAX650Server(modelPath, opts)
+	}
+
 	var llamaModel *llama.Model
 	var textProcessor model.TextProcessor
 	var err error
